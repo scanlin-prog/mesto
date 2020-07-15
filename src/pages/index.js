@@ -1,6 +1,4 @@
-import './images/Mesto.svg';
-import './images/face.jpg';
-import './pages/index.css';
+import './index.css';
 import {
     initialPlaces,
     validationOptions,
@@ -11,13 +9,13 @@ import {
     inputSecondEdit,
     submitButtonFormAdd,
     formList
-} from './scripts/Data.js';
-import UserInfo from './scripts/UserInfo.js';
-import Card from './scripts/Card.js';
-import Section from './scripts/Section.js';
-import PopupWithForm from './scripts/PopupWithForm.js';
-import PopupWithImage from './scripts/PopupWithImage.js';
-import FormValidator from './scripts/FormValidator.js';
+} from '../utils/constants.js';
+import UserInfo from '../components/UserInfo.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import FormValidator from '../components/FormValidator.js';
 
 const userInfo = new UserInfo({
     nameSelector: '.profile__info-title',
@@ -38,9 +36,7 @@ const popupEditValidation = new FormValidator(validationOptions, popupFormEdit);
 function createCard(item, callbackSubmitForm, cardSelector) {
 
     const card = new Card(item, callbackSubmitForm, cardSelector);
-    const cardElement = card.generateCard();
-
-    return cardElement;
+    return card.generateCard();
 }
 
 function handleCardClick(name, link) {

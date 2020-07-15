@@ -1,34 +1,34 @@
-import baikal from '../images/Байкал.jpg';
-import stena from '../images/Китайская_стена.jpg';
-import tadj from '../images/Тадж_махал.jpg';
-import sahara from '../images/Сахара.jpg';
-import elbrus from '../images/Эльбрус.jpg';
-import eiphel from '../images/Эйфелева_башня.jpg';
+import baikalImage from '../images/Байкал.jpg';
+import greatWallImage from '../images/Китайская_стена.jpg';
+import tajMahalImage from '../images/Тадж_махал.jpg';
+import desertSaharaImage from '../images/Сахара.jpg';
+import mountElbrusImage from '../images/Эльбрус.jpg';
+import eiffelTowerImage from '../images/Эйфелева_башня.jpg';
 
 export const initialPlaces = [
     {
         name: 'Байкал',
-        link: baikal
+        link: baikalImage
     },
     {
         name: 'Китайская стена',
-        link: stena
+        link: greatWallImage
     },
     {
         name: 'Тадж Махал',
-        link: tadj
+        link: tajMahalImage
     },
     {
         name: 'Сахара',
-        link: sahara
+        link: desertSaharaImage
     },
     {
         name: 'Эльбрус',
-        link: elbrus
+        link: mountElbrusImage
     },
     {
         name: 'Эйфелева башня',
-        link: eiphel
+        link: eiffelTowerImage
     }
 ];
 
