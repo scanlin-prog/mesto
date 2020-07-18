@@ -27,8 +27,7 @@ const imagePopup = new PopupWithImage('#popup-image');
 const cardList = new Section({
     items: initialPlaces,
     renderer: (item) => {
-        const place = createCard(item, handleCardClick,  '#place-template');
-        cardList.addItem(place);
+        addCardTypePlace(item)
     }
 }, '.places');
 const popupEditValidation = new FormValidator(validationOptions, popupFormEdit);
@@ -37,6 +36,10 @@ function createCard(item, callbackSubmitForm, cardSelector) {
 
     const card = new Card(item, callbackSubmitForm, cardSelector);
     return card.generateCard();
+}
+
+function addCardTypePlace(item) {
+    cardList.addItem(createCard(item, handleCardClick,  '#place-template'))
 }
 
 function handleCardClick(name, link) {
@@ -62,16 +65,15 @@ function onAddButtonClick () {
     addPopup.openPopup();
 }
 
-function editFormHandlerSubmit(formValues) {
+function editFormHandlerSubmit(item) {
 
-    userInfo.setUserInfo(formValues.name, formValues.job);
+    userInfo.setUserInfo(item.name, item.job);
 
 }
 
-function addFormHandlerSubmit(formValues) {
+function addFormHandlerSubmit(item) {
     
-    const place = createCard(formValues, handleCardClick, '#place-template');
-    cardList.addItem(place);
+    addCardTypePlace(item);
     
     submitButtonFormAdd.classList.add(validationOptions.inactiveButtonClass);
     submitButtonFormAdd.setAttribute('disabled', true);
