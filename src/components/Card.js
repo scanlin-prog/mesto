@@ -24,26 +24,23 @@ export default class Card {
     }
 
     _setEventListeners() {
-        const removeButtonPlace = this._element.querySelector('.place__button-remove');
-        const likeButtonPlace = this._element.querySelector('.place__button-like');
-        const placeImage =this._element.querySelector('.place__image');
-        removeButtonPlace.addEventListener('click', this._handleButtonRemove);
-        likeButtonPlace.addEventListener('click', this._handleButtonLike);
-        placeImage.addEventListener('click', this._callbackSubmitForm);
+        this._removeButtonPlace.addEventListener('click', this._handleButtonRemove);
+        this._likeButtonPlace.addEventListener('click', this._handleButtonLike);
+        this._placeImage.addEventListener('click', this._callbackSubmitForm);
 
     }
 
     _removeSetEventListeners() {
-        const removeButtonPlace = this._element.querySelector('.place__button-remove');
-        const likeButtonPlace = this._element.querySelector('.place__button-like');
-        const placeImage =this._element.querySelector('.place__image');
-        removeButtonPlace.removeEventListener('click', this._handleButtonRemove);
-        likeButtonPlace.removeEventListener('click', this._handleButtonLike);
-        placeImage.removeEventListener('click', this._callbackSubmitForm);
+        this._removeButtonPlace.removeEventListener('click', this._handleButtonRemove);
+        this._likeButtonPlace.removeEventListener('click', this._handleButtonLike);
+        this._placeImage.removeEventListener('click', this._callbackSubmitForm);
     }
 
     generateCard() {
         this._element = this._getTemplate();
+        this._likeButtonPlace = this._element.querySelector('.place__button-like');
+        this._removeButtonPlace = this._element.querySelector('.place__button-remove');
+        this._placeImage = this._element.querySelector('.place__image');
         this._setEventListeners();
 
         this._element.querySelector('.place__image').src = this._link;
