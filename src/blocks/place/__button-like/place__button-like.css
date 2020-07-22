@@ -6,9 +6,7 @@
     background-color: white;
     width: 21px;
     height: 19px;
-    position: absolute;
-    bottom: 27px;
-    right: 18px;
+    margin-bottom: 3px;
     border: 0;
     opacity: 1;
     transition: opacity 0.5s linear; 

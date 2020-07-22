@@ -11,7 +11,8 @@
     width: 18px;
     height: 19px;
     opacity: 1;
-    transition: opacity 0.5s linear; 
+    transition: opacity 0.5s linear;
+    visibility: hidden; 
 }
 
 .place__button-remove:hover {

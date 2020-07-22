@@ -12,6 +12,7 @@
     transition: opacity 0.5s linear; 
     border: 2px solid white;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -28,6 +29,5 @@
 }
 
 .profile__button-add:hover {
-    cursor: pointer;
     opacity: 0.6;
 }
