@@ -1,11 +1,14 @@
 import './index.css';
 import {
+    page,
     validationOptions,
     avatarInfo,
     editAvatarButton,
     editButtonInfo,
     addButtonInfo,
+    popupFormEditAvatar,
     popupFormEdit,
+    popupFormAdd,
     inputFirstEdit,
     inputSecondEdit,
     submitButtonFormAdd,
@@ -40,6 +43,8 @@ const editAvatarPopup = new PopupWithForm(editAvatarFormHandlerSubmit, '#popup-a
 const imagePopup = new PopupWithImage('#popup-image');
 const confirmPopup = new PopupWithConfirm('#popup-confirm');
 const popupEditValidation = new FormValidator(validationOptions, popupFormEdit);
+const popupAddValidation = new FormValidator(validationOptions, popupFormAdd);
+const popupEditAvatarValidation = new FormValidator(validationOptions, popupFormEditAvatar);
 let cardList;
 
 function createCard(item, cardSelector, handleImageCard, popupWithConfirm, Api) {
@@ -72,12 +77,16 @@ function onEditButtonClick () {
 }
 
 function onAddButtonClick () {
-    
+
+    popupAddValidation.resetValidationErrors();
+
     submitButtonFormAdd.textContent = 'Создать';
     addPopup.openPopup();
 }
 
 function onEditAvatarClick() {
+
+    popupEditAvatarValidation.resetValidationErrors();
 
     submitButtonFormEditAvatar.textContent = 'Сохранить';
     editAvatarPopup.openPopup()
@@ -127,7 +136,7 @@ api.getProfileData()
     document.querySelector('.profile__info-subtitle').textContent = result.about;
     document.querySelector('.profile__avatar').src = result.avatar;
 }).catch((err) => {
-    console.log(`Ошибка: ${err}`)
+    page.textContent = `Ошибка! ${err}`;
 })
 
 api.getCardsData()
@@ -144,7 +153,7 @@ api.getCardsData()
     }, '.places')
     cardList.renderItems();
 }).catch((err) => {
-    console.log(`Ошибка: ${err}`)
+    page.textContent = `Ошибка! ${err}`;
 })
 
 formList.forEach((formItem) => {

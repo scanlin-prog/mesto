@@ -78,10 +78,11 @@ export default class Card {
         this._likeNumber = this._element.querySelector('.place__button-like-number');
         this._removeButtonPlace = this._element.querySelector('.place__button-remove');
         this._placeImage = this._element.querySelector('.place__image');
+        this._placeTitle = this._element.querySelector('.place__title');
         this._setEventListeners();
 
-        this._element.querySelector('.place__image').src = this._link;
-        this._element.querySelector('.place__title').textContent = this._name;
+        this._placeImage.src = this._link;
+        this._placeTitle.textContent = this._name;
 
         if (this._owner._id === 'e1d30e9d8042878e27f0bd02') {
             this._removeButtonPlace.classList.add('place__button-remove_active')

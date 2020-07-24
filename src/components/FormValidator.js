@@ -64,7 +64,11 @@ export default class FormValidator {
         this._toggleButtonState(inputList, buttonElement);
 
         inputList.forEach((inputElement) => {
-            this._checkInputValidity(inputElement);
+            if (inputElement.value !== '') {
+                this._checkInputValidity(inputElement);
+            } else {
+                this._hideInputError(inputElement)
+            }
         })
 
     }
